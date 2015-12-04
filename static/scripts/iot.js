@@ -29,8 +29,8 @@
 				ws.on('serial-'+event, callback);
 			}
 
-			this.serial.send = function(topic, data){
-				ws.emit('serial-send', topic, data);
+			this.serial.send = function(topic, data, other){
+				ws.emit('serial-send', topic, data, other);
 			}
 
 		}
@@ -42,12 +42,20 @@
 (function(){
 	angular.module('iot').controller('iot-app', function($scope, mqtt){
 		$scope.mode = 1;
+
+		$scope.currentGroup = [];
+
+		$scope.available = [
+			"device1",
+			"device2",
+			"device3"
+		];
 		
 		$scope.$watch('mode', function(newVal){
-			mqtt.serial.send('mode', newVal);
+			mqtt.serial.send('mode', newVal, $scope.currentGroup);
 		});
 
-		mqtt.serial.send('mode', $scope.mode);
+		mqtt.serial.send('mode', $scope.mode, $scope.currentGroup);
 
 	});
 })();

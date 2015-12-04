@@ -113,25 +113,6 @@ if (serialPort){
 }
 
 function initSerial(){
-	serialPort.on("data", function (data) {	
-		var jsondata, err;
-		if (data.toString()[0] != "{"){
-			console.log('[Serial]','[Log]', data.toString());
-		} else {
-			try {
-				jsondata = JSON.parse(data.toString());
-			} catch (e) {
-				err = e;
-			}
-			if (jsondata){
-				
-				console.log('[Serial]','[Data]', jsondata);
-				
-			} else {
-				console.log('[Serial]','Got error parsing data', data.toString(), ':', err);
-			}
-		}
-	});
 }
 
 function mqttStatusChanged(){
@@ -242,11 +223,9 @@ io.on('connection', function (socket) {
 		publishStatus();
 	});
 
-	socket.on('serial-send', function(topic, data){
-		var message = {};
-		message[topic] = data;
-		mqttSend(topicMappings['control'], JSON.stringify(message));
-		publishStatus();
+	socket.on('serial-send', function(topic, data, other){
+		console.log('got', data, other);
+		serialSend(data);
 	});
 
 	publishStatus();

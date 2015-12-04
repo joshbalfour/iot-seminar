@@ -2,7 +2,8 @@
 	"mqttServer" : "mqtt://doughnut.kent.ac.uk",
 	"serialPort" : "/dev/tty.usbmodem1422",
 	"topicMappings" : {
-		"mode" : "unikent/iot/seminar/mode"
+		"unikent/iot/seminar/mode" : "mode",
+		"unikent/iot/seminar/mode" : "control"
 	},
 	"serialSeparator": {
 		"in": "",

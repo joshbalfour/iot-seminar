@@ -14,6 +14,8 @@ html.iot(lang="en",ng-app="iot")
 		.container
 			
 			.row
+				h2 Buttons
+				br
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 0}", ng-click="mode = 0") off
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 1}", style="margin-left: 10px;", ng-click="mode = 1") on
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'R'}", style="margin-left: 10px;", ng-click="mode = 'R'") red
@@ -23,6 +25,10 @@ html.iot(lang="en",ng-app="iot")
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'I'}", style="margin-left: 10px;", ng-click="mode = 'P'") Pink
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'V'}", style="margin-left: 10px;", ng-click="mode = 'C'") Cyan
 			
+			.row
+				h2 Group
+				br 
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': currentGroup.indexOf(id) != -1}", ng-repeat="id in available", ng-click="currentGroup.indexOf(id) ? currentGroup.push(id) : currentGroup.splice(currentGroup.indexOf(id),1 )") {{ id }}
 
 		script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js")
 		script(src="/socket.io/socket.io.js")
