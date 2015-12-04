@@ -10,64 +10,21 @@ html.iot(lang="en",ng-app="iot")
 			
 		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous")
 		
-		link(href='styles/iot.css', rel='stylesheet')
 	body(ng-controller="iot-app")
 		.container
 			
 			.row
-				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 1}", ng-click="mode = 1") Temperature
-				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 2}", style="margin-left: 10px;", ng-click="mode = 2") Monster Shooter
-				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 3}", style="margin-left: 10px;", ng-click="mode = 3") Compass
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 0}", ng-click="mode = 0") off
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 1}", style="margin-left: 10px;", ng-click="mode = 1") on
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'R'}", style="margin-left: 10px;", ng-click="mode = 'R'") red
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'G'}", style="margin-left: 10px;", ng-click="mode = 'G'") green
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'B'}", style="margin-left: 10px;", ng-click="mode = 'B'") blue
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'Y'}", style="margin-left: 10px;", ng-click="mode = 'Y'") yellow
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'I'}", style="margin-left: 10px;", ng-click="mode = 'I'") Indigo
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'V'}", style="margin-left: 10px;", ng-click="mode = 'V'") Violet
 			
-			.row(ng-controller="temperatureGraph", ng-show="mode == 1")
-				.col-lg-12
-					br
-					.alert.alert-danger(ng-show="!status.mqtt") Unable to connect to MQTT Server
-					.alert.alert-danger(ng-show="!status.serial") Unable to connect to Serial Device
-				.col-lg-2(ng-show="status.mqtt && status.serial")
-					h2 Temperature
-					div(google-chart chart="gauge" style="height:200px; width:100%;")
-					h3 Min: {{ min() }} C
-					h3 Max: {{ max() }} C
-				.col-lg-10(ng-show="status.mqtt && status.serial")
-					div(google-chart chart="graph" style="height:500px; width:100%;")
-
-			.row(ng-controller="monsterShooter", ng-show="mode == 2")
-				
-				.col-lg-12
-					br
-					.alert.alert-danger(ng-show="!status.mqtt") Unable to connect to MQTT Server
-					.alert.alert-danger(ng-show="!status.serial") Unable to connect to Serial Device
-				.col-lg-10.col-lg-offset-1(ng-show="status.mqtt && status.serial")
-					br
-					.well(ng-hide="data.timeLeft <= 0")
-						p The year is 3020.
-						p The earth's core is the planet's only remaining source of energy.
-						p An army of Ancient Square Aliens have invaded the planet and have been harvesting the molton core to produce weapons, cutting off the earth's only energy supply and destroying civilisation as we know it.
-						p The newly-immortal Elon Musk has developed a special suit that can withstand up to 30 seconds of exposure to the extremely high temperatures of the earth's molton core, and detect the proximity of the square monsters using state of the art synergy technology.
-						p Can you save the world from certain destruction in 30 seconds?
-						.btn.btn-success(ng-click="play()") Yes I Can!
-					.row.game(ng-show="data.timeLeft > 0")
-						.col-lg-9.screen(ng-class="{inverse: data.fired}")
-							.monster(ng-style="{ left: 'calc('+ data.monsterPos+'%'}")
-							.scope
-						.col-lg-3
-							.oxygen
-								h5 Oxygen Units Left
-								div(google-chart chart="gauge" style="height:100px; width:100px; margin: auto;")
-							.score
-								h3 Score: {{ data.points }}
-					.well(ng-show="data.timeLeft <= 0", style="text-align: center")
-						h2 Game Over!
-						h3 You Scored {{ data.points }} Points!
-						.btn.btn-success.btn-lg(ng-click="play()") Go Again!
-			.row(ng-controller="compass", ng-show="mode == 3")
-				.indicator
-				.compass(ng-style="{transform: 'rotate('+ data.mag[0] +'deg)' }")
-
 
 		script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js")
-		script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-chart/0.0.11/ng-google-chart.js")
 		script(src="/socket.io/socket.io.js")
 
 		script(src="scripts/iot.js")
