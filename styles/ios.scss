@@ -1,0 +1,74 @@
+.iot {
+
+	$scope-size: 100px;
+	$monster-size: 50px;
+	$screen-padding-top: 50px;
+	
+	body {
+		padding-top: 50px;
+	}
+
+	.screen {
+		position: relative;
+		height: 150px;
+		background: white;
+		border: 1px solid black;
+		
+		transition: background 0.1s;
+
+		&.inverse{
+			background: yellow;
+		}	
+	}
+
+	.monster {
+		width: $monster-size;
+		height: $monster-size;
+		background: black;
+		transition: 0.1s left;
+
+		position: absolute;
+
+		top: $screen-padding-top;
+		left: 50%;
+		margin-left: -125px;
+	}
+
+	h5 {
+		text-align: center;
+	}
+
+	.scope {
+		background: url('/images/scope.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: $scope-size;
+		height: $scope-size;
+		position: absolute;
+		left: 50%;
+		margin-left: -$scope-size/2;
+		top: 50%;
+		margin-top: -$scope-size/2;
+	}
+
+	.compass{
+		background: url('/images/compass.png');
+		background-repeat: no-repeat;
+		background-size: contain;
+		margin: auto;
+		margin-top: 50px;
+		width: 400px;
+		height: 400px;
+		transform-origin: 50% 50% 0;
+		transition: 0.5s transform; 
+	}
+	.indicator{
+		margin: auto;
+
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 25px 25px 0 25px;
+		border-color: red transparent transparent transparent;
+	}
+}
