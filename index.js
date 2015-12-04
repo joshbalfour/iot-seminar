@@ -246,16 +246,6 @@ app.use(express.static(path.join(__dirname, 'static')));
 var topicMappings = config.topicMappings;
 
 io.on('connection', function (socket) {
-	
-	socket.on('mqtt-subscribe', function (topic) {
-		if (topicMappings[topic]){
-			mqttSubscribe(topicMappings[topic]);
-		} else {
-			console.log('[Internal]','Failed to map topic', topic);
-		}
-		publishStatus();
-	});
-
 	socket.on('mqtt-send', function (topic, message) {
 		mqttSend(topicMappings[topic], message);
 		publishStatus();
