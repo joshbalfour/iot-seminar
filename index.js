@@ -166,14 +166,6 @@ function mqttSend(topic, message){
 	}
 }
 
-function mqttBroadcastTopics(){
-	var topics = [];
-	for (var i in config.topicMappings){
-		topics.push(config.topicMappings[i]);
-	}
-	mqttSend(config.mqttBroadcastTopicListTopic, topics.join('\n'), {retain: true});
-}
-
 function mqttRecieve(topic, message){
 	console.log('[MQTT]','recieved', topic, message);
 
