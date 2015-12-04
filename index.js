@@ -113,6 +113,9 @@ if (serialPort){
 }
 
 function initSerial(){
+	serialPort.on("data", function (data) {	
+		console.log('[Serial]','[Log]', data.toString());
+	});
 }
 
 function mqttStatusChanged(){
@@ -184,8 +187,8 @@ function serialDataHandler(serialTopic, data){
 
 function serialSend(message){
 	if (serialConnected && serialPort){
-		console.log('[Serial]', 'Sending message:', JSON.stringify(message)+config.serialSeparator.out);
-		serialPort.write(JSON.stringify(message)+config.serialSeparator.out);
+		console.log('[Serial]', 'Sending message:', (message+"").charCodeAt(0));
+		serialPort.write(message+"");
 	} else {
 		console.log('[Serial]', '[Error]','Error Sending message:', message,' ','Not Connected');
 	}

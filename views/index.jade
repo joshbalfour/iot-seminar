@@ -14,16 +14,18 @@ html.iot(lang="en",ng-app="iot")
 		.container
 			
 			.row
-				h2 Buttons
+				h2 Control
 				br
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 0}", ng-click="mode = 0") off
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 1}", style="margin-left: 10px;", ng-click="mode = 1") on
-				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'R'}", style="margin-left: 10px;", ng-click="mode = 'R'") red
+				br
+				h2 Colours
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'R'}", ng-click="mode = 'R'") red
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'G'}", style="margin-left: 10px;", ng-click="mode = 'G'") green
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'B'}", style="margin-left: 10px;", ng-click="mode = 'B'") blue
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'Y'}", style="margin-left: 10px;", ng-click="mode = 'Y'") yellow
-				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'I'}", style="margin-left: 10px;", ng-click="mode = 'P'") Pink
-				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'V'}", style="margin-left: 10px;", ng-click="mode = 'C'") Cyan
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'P'}", style="margin-left: 10px;", ng-click="mode = 'P'") Pink
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'C'}", style="margin-left: 10px;", ng-click="mode = 'C'") Cyan
 			
 			.row
 				h2 Group
