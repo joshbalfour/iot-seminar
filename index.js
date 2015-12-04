@@ -69,7 +69,6 @@ if (serialPort){
 		for (var i in config.topicMappings){
 			mqttSubscribe(config.topicMappings[i]);
 		}
-		mqttBroadcastTopics();
 	});
 	
 	client.on('end', function () {

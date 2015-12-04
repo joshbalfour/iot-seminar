@@ -1,5 +1,5 @@
 {
-	"mqttServer" : "mqtt://donut.kent.ac.uk",
+	"mqttServer" : "mqtt://doughnut.kent.ac.uk",
 	"serialPort" : "/dev/tty.usbmodem1422",
 	"topicMappings" : {
 		"status" : "unikent/iot/seminar/status"
