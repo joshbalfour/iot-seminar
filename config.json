@@ -1,0 +1,12 @@
+{
+	"serialPort" : "/dev/tty.usbmodem1422",
+	"topicMappings" : {
+		"status" : "unikent/iot/seminar/status",
+	},
+	"serialSeparator": {
+		"in": "\r\n",
+		"out": ""
+	},
+	"reconnectInterval": 1,
+	"webPort" : 3000
+}
