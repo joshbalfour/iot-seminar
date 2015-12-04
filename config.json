@@ -5,7 +5,7 @@
 		"status" : "unikent/iot/seminar/status"
 	},
 	"serialSeparator": {
-		"in": "\r\n",
+		"in": "",
 		"out": ""
 	},
 	"reconnectInterval": 1,
