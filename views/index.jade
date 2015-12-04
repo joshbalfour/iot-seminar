@@ -20,11 +20,11 @@ html.iot(lang="en",ng-app="iot")
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'G'}", style="margin-left: 10px;", ng-click="mode = 'G'") green
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'B'}", style="margin-left: 10px;", ng-click="mode = 'B'") blue
 				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'Y'}", style="margin-left: 10px;", ng-click="mode = 'Y'") yellow
-				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'I'}", style="margin-left: 10px;", ng-click="mode = 'I'") Indigo
-				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'V'}", style="margin-left: 10px;", ng-click="mode = 'V'") Violet
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'I'}", style="margin-left: 10px;", ng-click="mode = 'P'") Pink
+				.btn.btn-default.btn-lg(ng-class="{'btn-primary': mode == 'V'}", style="margin-left: 10px;", ng-click="mode = 'C'") Cyan
 			
 
-		script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js")
+		script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js")
 		script(src="/socket.io/socket.io.js")
 
 		script(src="scripts/iot.js")
